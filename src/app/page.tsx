@@ -1,3 +1,6 @@
+import { Suspense } from 'react'
+import GraficaSkeleton from './components/graficaSkeleton';
+import GraficaServer from './components/graficaServer';
 
 export default function HomePage() {
   return (
@@ -11,9 +14,9 @@ export default function HomePage() {
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold mb-4">Tendencias Globales</h2>
-        <div className="w-full h-[300px] bg-muted rounded-xl flex items-center justify-center text-sm text-muted-foreground">
-          [Gráfico Interactivo]
-        </div>
+        <Suspense fallback={<GraficaSkeleton />}>
+          <GraficaServer />
+        </Suspense>
       </section>
 
       <section className="mt-10">
